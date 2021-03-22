@@ -1,0 +1,39 @@
+group 'com.comm.king_scanner_example'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+//    implementation 'com.google.com.zxing:core:3.3.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation files('libs/core-3.3.0.jar')
+}
