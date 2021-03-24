@@ -71,9 +71,13 @@ public class KingScannerPlugin implements FlutterPlugin, MethodCallHandler, Acti
             public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
                 if (requestCode == 1000 && data != null) {
                     final String string = data.getExtras().getString("SCAN_RESULT");
-                    mResult.success(string);
+                    if(mResult != null){
+                        mResult.success(string);
+                    }
                 } else {
-                    mResult.success("failed");
+                    if(mResult != null){
+                        mResult.success("failed");
+                    }
                 }
                 return false;
             }
