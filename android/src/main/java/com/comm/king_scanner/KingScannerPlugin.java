@@ -50,7 +50,7 @@ public class KingScannerPlugin implements FlutterPlugin, MethodCallHandler, Acti
                 ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.CAMERA}, 1);
             } else {
                 Intent intent = new Intent(mActivity, CaptureActivity.class);
-                mActivity.startActivityForResult(intent, 1000);
+                mActivity.startActivityForResult(intent, 10000);
 //                result.success("");
             }
         } else {
@@ -69,7 +69,7 @@ public class KingScannerPlugin implements FlutterPlugin, MethodCallHandler, Acti
         binding.addActivityResultListener(new PluginRegistry.ActivityResultListener() {
             @Override
             public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
-                if (requestCode == 1000) {
+                if (requestCode == 10000) {
                     if( data != null){
                         final String string = data.getExtras().getString("SCAN_RESULT");
                         if(mResult != null){
